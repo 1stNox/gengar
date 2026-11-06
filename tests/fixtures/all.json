@@ -1,0 +1,11 @@
+[
+  {"name":"AVG-9001","packages":["openssl","lib32-openssl"],"status":"Fixed","severity":"Critical","type":"arbitrary code execution","affected":"3.3.1-1","fixed":"3.3.2-1","ticket":null,"issues":["CVE-2026-10001","CVE-2026-10002"],"advisories":["ASA-202609-01"]},
+  {"name":"AVG-9002","packages":["curl","lib32-curl"],"status":"Vulnerable","severity":"High","type":"denial of service","affected":"8.10.0-1","fixed":null,"ticket":null,"issues":["CVE-2026-10003"],"advisories":[]},
+  {"name":"AVG-9003","packages":["vim"],"status":"Fixed","severity":"Medium","type":"arbitrary code execution","affected":"9.1.0700-1","fixed":"9.1.0800-1","ticket":null,"issues":["CVE-2026-10004","CVE-2026-10005","CVE-2026-10006","CVE-2026-10007"],"advisories":[]},
+  {"name":"AVG-9004","packages":["zlib","lib32-zlib"],"status":"Fixed","severity":"High","type":"arbitrary code execution","affected":"1:1.3-1","fixed":"1:1.3.1-1","ticket":null,"issues":["CVE-2026-10008"],"advisories":["ASA-202609-02"]},
+  {"name":"AVG-9005","packages":["sudo"],"status":"Not affected","severity":"High","type":"privilege escalation","affected":"1.9.15.p5-1","fixed":null,"ticket":null,"issues":["CVE-2026-10009"],"advisories":[]},
+  {"name":"AVG-9006","packages":["python-requests"],"status":"Fixed","severity":"Low","type":"information disclosure","affected":"2.31.0-1","fixed":"2.32.0-1","ticket":null,"issues":["CVE-2026-10010"],"advisories":[]},
+  {"name":"AVG-9007","packages":["visual-studio-code-bin"],"status":"Vulnerable","severity":"Medium","type":"arbitrary code execution","affected":"1.90.0-1","fixed":null,"ticket":null,"issues":["CVE-2026-10011"],"advisories":[]},
+  {"name":"AVG-9008","packages":["glibc","lib32-glibc"],"status":"Fixed","severity":"High","type":"privilege escalation","affected":"2.39-1","fixed":"2.40-1","ticket":null,"issues":["CVE-2026-10012"],"advisories":["ASA-202608-05"]},
+  {"name":"AVG-9009","packages":["xz"],"status":"Fixed","severity":"Critical","type":"arbitrary code execution","affected":"5.6.0-1","fixed":"5.6.1-2","ticket":null,"issues":["CVE-2026-10013"],"advisories":["ASA-202604-01"]}
+]

@@ -1,0 +1,2 @@
+paru 2.0.4-1
+visual-studio-code-bin 1.95.1-1

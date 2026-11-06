@@ -1,0 +1,8 @@
+#!/bin/sh
+# Stand-in for pacman in tests: answers the two read-only queries Gengar uses.
+dir=$(dirname "$0")
+case "$*" in
+  "-Q") cat "$dir/installed.txt" ;;
+  "-Qm") cat "$dir/foreign.txt" ;;
+  *) echo "fake-pacman: unexpected arguments: $*" >&2; exit 64 ;;
+esac

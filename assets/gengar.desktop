@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Gengar
+GenericName=Package Vulnerability Scanner
+Comment=Watches installed pacman and AUR packages for known security vulnerabilities
+Exec=gengar
+Icon=gengar
+Terminal=false
+Categories=System;Security;Monitor;
+Keywords=security;cve;vulnerability;pacman;aur;paru;audit;
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
+X-KDE-autostart-phase=2

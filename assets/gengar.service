@@ -1,0 +1,21 @@
+# Optional alternative to the XDG autostart entry:
+#   systemctl --user enable --now gengar.service
+# Only one instance ever runs, so having both enabled is harmless.
+[Unit]
+Description=Gengar package vulnerability scanner (tray icon)
+Documentation=https://github.com/1stNox/gengar
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=@BINDIR@/gengar tray
+Restart=on-failure
+RestartSec=30
+Nice=19
+IOSchedulingClass=idle
+CPUQuota=10%
+MemoryMax=128M
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=graphical-session.target
