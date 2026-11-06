@@ -1,0 +1,26 @@
+[package]
+name = "gengar"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Lightweight background vulnerability scanner for CachyOS / Arch Linux packages"
+license = "MIT"
+repository = "https://github.com/1stNox/gengar"
+readme = "README.md"
+
+[dependencies]
+ksni = { version = "0.3", default-features = false, features = ["async-io", "blocking"] }
+notify-rust = "4"
+ureq = { version = "3", default-features = false, features = ["rustls", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = { version = "0.9", default-features = false, features = ["parse", "serde"] }
+dirs = "6"
+libc = "0.2"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

@@ -1,0 +1,50 @@
+# Maintainer: Finn-Lasse Reichling
+pkgname=gengar-git
+_pkgname=gengar
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Lightweight, read-only vulnerability scanner with tray icon for pacman and AUR packages"
+arch=('x86_64' 'x86_64_v3' 'x86_64_v4' 'aarch64')
+url="https://github.com/1stNox/gengar"
+license=('MIT')
+depends=('pacman' 'dbus' 'xdg-utils' 'gcc-libs' 'glibc')
+makedepends=('cargo' 'git')
+optdepends=('gnome-shell-extension-appindicator: tray icon support on GNOME')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+options=('!lto' '!debug')
+source=("$_pkgname::git+https://github.com/1stNox/gengar.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_pkgname"
+  printf "%s.r%s.g%s" \
+    "$(sed -n 's/^version = "\(.*\)"/\1/p' Cargo.toml | head -n1)" \
+    "$(git rev-list --count HEAD)" \
+    "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "$_pkgname"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+  cd "$_pkgname"
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  cargo build --frozen --release
+}
+
+check() {
+  cd "$_pkgname"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo test --frozen
+}
+
+package() {
+  cd "$_pkgname"
+  make DESTDIR="$pkgdir" PREFIX=/usr install
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$_pkgname/README.md"
+}
